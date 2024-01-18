@@ -37,9 +37,12 @@ Route::middleware('auth')->group(function () {
 });
 Route::middleware('auth')->group(function () {
     Route::get('/fastfood_track', [FastfoodController::class, 'index'])->name('fastFood_track');
+    Route::get('/fastfood_track.daily', [FastfoodController::class, 'daily_journal'])->name('daily_fastfood');
     // Route::get('/check_gizi', [FastfoodController::class, 'create'])->name('check_gizi');
-    // Route::post('/check_gizi/str', [FastfoodController::class, 'store'])->name('calculate_activity');
+    Route::post('/daily_jurnal/str', [FastfoodController::class, 'store'])->name('daily_jurnal');
     Route::get('/fastfood/result', [FastfoodController::class, 'result'])->name('result_fastfood');
+    Route::get('/data_profile', [FastfoodController::class, 'profile'])->name('profile.data');
+    Route::post('/data_profile/str', [FastfoodController::class, 'store_profile'])->name('store_profile');
 });
 
 require __DIR__ . '/auth.php';
